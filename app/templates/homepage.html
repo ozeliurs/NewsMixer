@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+    {% for new in news %}
+    <div class="row" style="margin-top: 10px">
+        <div class="col-1"><img src="{{ new.link | favicon }}" style="width: 100%"></div>
+        <div class="col-11" style="background-color: mintcream; border-radius: 5px; padding: 10px">
+            {{ new.date | string }} - <a href="{{ new.link }}">{{ new.title }}</a>
+            {% if new.desc is not none %}
+            <ul>
+                <li>{{ new.desc | safe }}</li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

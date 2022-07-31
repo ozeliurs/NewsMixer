@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>NewsMixer - {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-left">
+            <a class="brand" href="/">NewsMixer</a>
+            <div class="tabs">
+                <a href="/news/today">Today's News</a>
+                <a href="/news/all">All News</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a class="button outline" href="/update">Update</a>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

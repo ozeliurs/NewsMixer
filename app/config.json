@@ -1,0 +1,14 @@
+{
+	"spotify": [
+		"https://open.spotify.com/show/539N9WvnUguUzMWluPp2UK?si=336b676249e34d23",
+		"https://open.spotify.com/show/3tLO8LmKVl96cSp7J3INwh?si=c57687b9e26347e0",
+		"https://open.spotify.com/show/7nda7u8PGTU2AfpLZ9ZR9Z?si=9c1c237252394291"
+	],
+	"rss": [
+		"https://cert.ssi.gouv.fr/alerte/feed/",
+		"https://torrentfreak.com/feed/",
+		"https://www.wired.com/feed/category/security/latest/rss",
+		"https://www.fdn.fr/feed/",
+		"https://www.laquadrature.net/feed/"
+	]
+}

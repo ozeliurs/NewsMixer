@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+requests
+bs4
+lxml
+python-dateutil
+pandas
+feedparser
