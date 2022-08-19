@@ -6,7 +6,7 @@ COPY ./app /app
 RUN pip install gunicorn
 RUN pip install -r /app/requirements.txt
 
-EXPOSE 8000
+EXPOSE 8967
 
 HEALTHCHECK CMD curl --fail http://localhost:8967 || exit 1
 
