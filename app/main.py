@@ -1,12 +1,13 @@
 import json
 import feedparser
 import favicon
+import time
 
 from datetime import datetime
 from time import mktime
 from pathlib import Path
 from urllib.parse import urlparse
-from flask import Flask, jsonify, render_template, redirect
+from flask import Flask, jsonify, render_template, redirect, g
 from flask_sqlalchemy import SQLAlchemy
 
 if not Path("./persistent").exists():
@@ -37,6 +38,12 @@ class Favicon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     domain = db.Column(db.String(128))
     url = db.Column(db.String(512))
+
+
+@app.before_request
+def before_request():
+   g.request_start_time = time.time()
+   g.request_time = lambda: "%.1fs" % (time.time() - g.request_start_time)
 
 
 @app.route("/")
