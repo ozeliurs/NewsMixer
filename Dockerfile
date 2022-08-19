@@ -8,6 +8,6 @@ RUN pip install -r /app/requirements.txt
 
 EXPOSE 8000
 
-HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
+HEALTHCHECK CMD curl --fail http://localhost:8967 || exit 1
 
-CMD ["gunicorn"  , "-b", "0.0.0.0:8000", "main:app"]
+CMD ["gunicorn"  , "-b", "0.0.0.0:8967", "main:app"]

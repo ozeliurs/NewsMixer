@@ -30,7 +30,7 @@ services:
       - "traefik.http.routers.news-mixer-secure.tls=true"
       - "traefik.http.routers.news-mixer-secure.tls.certresolver=http"
       - "traefik.http.routers.news-mixer-secure.service=news-mixer"
-      - "traefik.http.services.news-mixer.loadbalancer.server.port=8000"
+      - "traefik.http.services.news-mixer.loadbalancer.server.port=8967"
       - "traefik.docker.network=proxy"
 
 networks:
