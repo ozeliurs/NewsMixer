@@ -9,13 +9,16 @@ from urllib.parse import urlparse
 from flask import Flask, jsonify, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 
+if not Path("./persistent").exists():
+    exit(1)
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///news_mixer.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///persistent/news_mixer.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 db = SQLAlchemy(app)
 
-config = json.loads(Path("./config.json").read_text())
+config = json.loads(Path("./persistent/config.json").read_text())
 
 
 class News(db.Model):
