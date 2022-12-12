@@ -9,6 +9,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from flask import Flask, jsonify, render_template, redirect, g
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
 
 if not Path("./persistent").exists():
     exit(1)
@@ -17,8 +18,10 @@ if not Path("./persistent").exists():
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///persistent/news_mixer.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
-app.config['WTF_CSRF_ENABLED'] = True
 db = SQLAlchemy(app)
+
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 config = json.loads(Path("./persistent/config.json").read_text())
 
