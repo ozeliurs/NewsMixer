@@ -17,6 +17,7 @@ if not Path("./persistent").exists():
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///persistent/news_mixer.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
+app.config['WTF_CSRF_ENABLED'] = True
 db = SQLAlchemy(app)
 
 config = json.loads(Path("./persistent/config.json").read_text())
